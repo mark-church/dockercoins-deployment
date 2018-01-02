@@ -2,13 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: webui
-  name: webui
+    app: hasher
+  name: hasher
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
   selector:
-    app: webui
-  type: NodePort
+    app: hasher
+  type: ClusterIP
+
