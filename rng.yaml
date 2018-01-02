@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: rng
+  name: rng
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rng
+    spec:
+      containers:
+      - image: chrch/rng
+        name: rng
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: rng
+  name: rng
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: rng
+  type: ClusterIP
+
