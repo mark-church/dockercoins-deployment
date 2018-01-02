@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    run: rng
+    app: rng
   name: rng
 spec:
   replicas: 1

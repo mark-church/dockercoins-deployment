@@ -1,6 +1,6 @@
 name: dockercoins
 home: https://github.com/jpetazzo/container.training/tree/master/dockercoins
-version: 0.2.0
+version: 0.2.1
 description: An application that mines Dockercoins
 sources:
   - https://github.com/jpetazzo/container.training/tree/master/dockercoins
