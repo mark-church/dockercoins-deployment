@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: webui
+  name: webui
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webui
+    spec:
+      containers:
+      - image: chrch/webui
+        name: webui
