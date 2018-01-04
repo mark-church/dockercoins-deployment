@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
+    stack: dockercoins
     app: webui
   name: webui
 spec:
@@ -9,8 +10,9 @@ spec:
   template:
     metadata:
       labels:
+        stack: dockercoins
         app: webui
     spec:
       containers:
-      - image: chrch/webui
+      - image: chrch/webui:1.0
         name: webui

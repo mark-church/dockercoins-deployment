@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
+    stack: dockercoins
     app: worker
   name: worker
 spec:
@@ -9,9 +10,10 @@ spec:
   template:
     metadata:
       labels:
+        stack: dockercoins
         app: worker
     spec:
       containers:
-      - image: chrch/worker:{{ .Values.worker.imageTag }}
+      - image: chrch/worker:1.0
         name: worker      
       

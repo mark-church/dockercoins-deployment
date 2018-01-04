@@ -1,15 +1,18 @@
-apiVersion: v1
-kind: Service
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   labels:
+    stack: dockercoins
     app: hasher
   name: hasher
 spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 80
-  selector:
-    app: hasher
-  type: ClusterIP
-
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        stack: dockercoins
+        app: hasher
+    spec:
+      containers:
+      - image: chrch/hasher:1.0
+        name: hasher

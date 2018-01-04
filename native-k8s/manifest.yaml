@@ -5,8 +5,8 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: dockercoins
-    app-component: webui
+    stack: dockercoins
+    app: webui
   name: webui
 spec:
   replicas: 1
@@ -55,7 +55,7 @@ spec:
         app: worker
     spec:
       containers:
-      - image: chrch/worker
+      - image: chrch/worker:1.0
         name: worker
 ---
 
@@ -77,7 +77,7 @@ spec:
         app: hasher
     spec:
       containers:
-      - image: chrch/hasher
+      - image: chrch/hasher:1.0
         name: hasher
 ---
 apiVersion: v1
@@ -115,7 +115,7 @@ spec:
         app: rng
     spec:
       containers:
-      - image: chrch/rng
+      - image: chrch/rng:1.0
         name: rng
 ---
 apiVersion: v1
@@ -153,7 +153,7 @@ spec:
         app: redis
     spec:
       containers:
-      - image: redis
+      - image: redis:4.0.6
         name: redis
 ---
 apiVersion: v1

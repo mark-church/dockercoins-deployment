@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
+    stack: dockercoins
     app: rng
   name: rng
 spec:
@@ -9,8 +10,9 @@ spec:
   template:
     metadata:
       labels:
+        stack: dockercoins
         app: rng
     spec:
       containers:
-      - image: chrch/rng
+      - image: chrch/rng:1.0
         name: rng
