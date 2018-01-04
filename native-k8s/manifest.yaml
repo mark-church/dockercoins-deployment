@@ -1,0 +1,180 @@
+
+######################################
+# webui
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: dockercoins
+    app-component: webui
+  name: webui
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        stack: dockercoins
+        app: webui
+    spec:
+      containers:
+      - image: chrch/webui:1.0
+        name: webui
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    stack: dockercoins
+    app: webui
+  name: webui
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: webui
+  type: NodePort
+---
+
+######################################
+# worker
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    stack: dockercoins
+    app: worker
+  name: worker
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        stack: dockercoins
+        app: worker
+    spec:
+      containers:
+      - image: chrch/worker
+        name: worker
+---
+
+######################################
+# hasher
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    stack: dockercoins
+    app: hasher
+  name: hasher
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        stack: dockercoins
+        app: hasher
+    spec:
+      containers:
+      - image: chrch/hasher
+        name: hasher
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    stack: dockercoins
+    app: hasher
+  name: hasher
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: hasher
+  type: ClusterIP
+---
+
+######################################
+# rng
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    stack: dockercoins
+    app: rng
+  name: rng
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        stack: dockercoins
+        app: rng
+    spec:
+      containers:
+      - image: chrch/rng
+        name: rng
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    stack: dockercoins
+    app: rng
+  name: rng
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: rng
+  type: ClusterIP
+---
+
+######################################
+# redis
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    stack: dockercoins
+    app: redis
+  name: redis
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        stack: dockercoins
+        app: redis
+    spec:
+      containers:
+      - image: redis
+        name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    stack: dockercoins
+    app: redis
+  name: redis
+spec:
+  ports:
+  - port: 6379
+    protocol: TCP
+    targetPort: 6379
+  selector:
+    app: redis
+  type: ClusterIP
+
+
+
+
+
+
+
