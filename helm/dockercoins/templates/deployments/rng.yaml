@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    stack: {{.Release.Name}}
+    stack: {{ .Release.Name }}
     app: rng
   name: {{ .Release.Name }}-rng
 spec:
@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        stack: {{.Release.Name}}
+        stack: {{ .Release.Name }}
         app: rng
     spec:
       containers:

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    stack: {{.Release.Name}}
+    stack: {{ .Release.Name }}
     app: webui
   name: {{ .Release.Name }}-webui
 spec:
@@ -11,5 +11,6 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
+    stack: {{ .Release.Name }}
     app: webui
   type: NodePort

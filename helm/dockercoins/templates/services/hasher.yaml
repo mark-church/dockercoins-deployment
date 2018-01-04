@@ -1,18 +1,16 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   labels:
-    stack: {{.Release.Name}}
+    stack: {{ .Release.Name }}
     app: hasher
   name: {{ .Release.Name }}-hasher
 spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        stack: {{.Release.Name}}
-        app: hasher
-    spec:
-      containers:
-      - image: chrch/hasher:1.0
-        name: {{ .Release.Name }}-hasher
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    stack: {{ .Release.Name }}
+    app: hasher
+  type: ClusterIP

@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        stack: {{.Release.Name}}
+        stack: {{ .Release.Name }}
         app: hasher
     spec:
       containers:

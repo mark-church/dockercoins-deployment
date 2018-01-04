@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    stack: {{.Release.Name}}
+    stack: {{ .Release.Name }}
     app: webui
   name: {{ .Release.Name }}-webui
 spec:
@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        stack: {{.Release.Name}}
+        stack: {{ .Release.Name }}
         app: webui
     spec:
       containers:
