@@ -4,7 +4,7 @@ metadata:
   labels:
     stack: {{.Release.Name}}
     app: webui
-  name: webui
+  name: {{ .Release.Name }}-webui
 spec:
   ports:
   - port: 80

@@ -4,7 +4,7 @@ metadata:
   labels:
     stack: {{.Release.Name}}
     app: worker
-  name: worker
+  name: {{ .Release.Name }}-worker
 spec:
   replicas: {{ .Values.worker.replicas }}
   template:
@@ -15,5 +15,5 @@ spec:
     spec:
       containers:
       - image: chrch/worker:1.0
-        name: worker      
+        name: {{ .Release.Name }}-worker      
       

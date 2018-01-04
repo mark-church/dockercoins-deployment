@@ -4,7 +4,7 @@ metadata:
   labels:
     stack: {{.Release.Name}}
     app: webui
-  name: webui
+  name: {{ .Release.Name }}-webui
 spec:
   replicas: 1
   template:
@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - image: chrch/webui:1.0
-        name: webui
+        name: {{ .Release.Name }}-webui

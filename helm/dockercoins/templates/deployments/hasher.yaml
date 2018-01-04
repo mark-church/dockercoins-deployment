@@ -2,9 +2,9 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    stack: {{.Release.Name}}
+    stack: {{ .Release.Name }}
     app: hasher
-  name: hasher
+  name: {{ .Release.Name }}-hasher
 spec:
   replicas: 1
   template:
@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - image: chrch/hasher:1.0
-        name: hasher
+        name: {{ .Release.Name }}-hasher

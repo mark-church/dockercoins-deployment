@@ -4,7 +4,7 @@ metadata:
   labels:
     stack: {{.Release.Name}}
     app: redis
-  name: redis
+  name: {{ .Release.Name }}-redis
 spec:
   ports:
   - port: 6379

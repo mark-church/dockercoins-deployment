@@ -4,7 +4,7 @@ metadata:
   labels:
     stack: {{.Release.Name}}
     app: redis
-  name: redis
+  name: {{ .Release.Name }}-redis
 spec:
   replicas: 1
   template:
@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - image: redis:4.0.6
-        name: redis
+        name: {{ .Release.Name }}-redis
