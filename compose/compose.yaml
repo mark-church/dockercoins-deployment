@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  rng:
+    image: chrch/rng:1.0
+    deploy:
+      mode: global
+
+  hasher:
+    image: chrch/hasher:1.0
+
+  webui:
+    image: chrch/webui:1.0
+    ports:
+    - "8000:80"
+
+  redis:
+    image: redis
+
+  worker:
+    image: chrch/worker:1.0
+    deploy:
+      replicas: 3
