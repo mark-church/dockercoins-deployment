@@ -4,7 +4,7 @@ metadata:
   labels:
     stack: {{ .Release.Name }}
     app: rng
-  name: {{ .Release.Name }}-rng
+  name: rng
 spec:
   ports:
   - port: 80
