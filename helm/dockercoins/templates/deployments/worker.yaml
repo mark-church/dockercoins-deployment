@@ -15,5 +15,4 @@ spec:
     spec:
       containers:
       - image: chrch/worker:1.0
-        name: {{ .Release.Name }}-worker      
-      
+        name: {{ .Release.Name }}-worker

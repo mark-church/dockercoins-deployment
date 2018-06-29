@@ -4,7 +4,7 @@ metadata:
   labels:
     stack: {{ .Release.Name }}
     app: hasher
-  name: {{ .Release.Name }}-hasher
+  name: hasher
 spec:
   ports:
   - port: 80
